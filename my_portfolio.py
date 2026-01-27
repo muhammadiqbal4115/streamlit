@@ -3,6 +3,9 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 from numpy.random import default_rng as rng
+import os
+from sklearn.naive_bayes import GaussianNB
+import joblib
 
 st.set_page_config(
     page_title="MAAN-AI",
@@ -116,4 +119,5 @@ with tab2:
     st.header('Map:')
     st.map()
     st.code("""st.map()""")
+    st.divider()
 
