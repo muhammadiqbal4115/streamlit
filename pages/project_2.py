@@ -43,7 +43,7 @@ with st.sidebar:
 
     st.page_link(
         "pages/project_1.py",
-        label="📌 Project 1",
+        label="📌 Iris Data-Set",
     )
 
     st.page_link(
