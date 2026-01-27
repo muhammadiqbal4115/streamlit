@@ -43,12 +43,12 @@ with st.sidebar:
 
     st.page_link(
         "pages/project_1.py",
-        label="📌 Iris Data-Set",
+        label="📌 Predict Iris Species",
     )
 
     st.page_link(
         "pages/project_2.py",
-        label="📌 Project 2",
+        label="📌 Predict Housing Price",
     )
 
 tab1, tab2 = st.tabs(["Profile", "Initial Streamlit"], width="stretch")

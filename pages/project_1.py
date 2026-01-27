@@ -43,10 +43,10 @@ with st.sidebar:
 
     st.page_link(
         "pages/project_1.py",
-        label="📌 Iris Data-Set",
+        label="📌 Predict Iris Species",
     )
 
     st.page_link(
         "pages/project_2.py",
-        label="📌 Project 2",
+        label="📌 Predict Housing Price",
     )
