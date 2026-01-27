@@ -18,6 +18,10 @@ st.markdown("""
         width: 100%;
         display: flex;
     }
+    section[data-testid="stSidebar"] ul {
+    visibility: hidden;
+    height: 0px;
+    }
 
     /* Force each tab button to grow and fill the container equally */
     [data-baseweb="tab"] {
@@ -27,20 +31,43 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["Profile", "Initial Streamlit", "Project"], width="stretch")
+with st.sidebar:
+
+    st.page_link(
+        "my_portfolio.py",
+        label="Portfolio",
+    )
+
+    st.markdown('<div class="sidebar-heading">📁 Projects</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheading">Machine Learning:</div>', unsafe_allow_html=True)
+
+    st.page_link(
+        "pages/project_1.py",
+        label="📌 Project 1",
+    )
+
+    st.page_link(
+        "pages/project_2.py",
+        label="📌 Project 2",
+    )
+
+tab1, tab2 = st.tabs(["Profile", "Initial Streamlit"], width="stretch")
 
 with tab1:
-    col1, col2 = st.columns(2)
-    with col1:
-        st.title('')
-        current_dir = Path(__file__).parent
-        img_path = current_dir / "1758954174262.jpg"
-        st.image(img_path)
-    with col2:
-        st.title('')
-        st.header("Name: Muhammad Iqbal")
-        st.header('Email: muhammad.iqbal4115@gmail.com')
-        st.header('City: Faisalabad')
+    with st.container():
+        col1, col2 = st.columns(2)
+        with st.container():
+            with col1:
+                st.title('')
+                current_dir = Path(__file__).parent
+                img_path = current_dir / "1758954174262.jpg"
+                st.image(img_path, width="stretch")
+        with st.container():
+            with col2:
+                st.title('')
+                st.subheader("Name: Muhammad Iqbal")
+                st.subheader('Email: muhammad.iqbal4115@gmail.com')
+                st.subheader('City: Faisalabad')
 with tab2:
     st.title("Title:")
     st.code('''st.title("Title:")''')
@@ -89,7 +116,4 @@ with tab2:
     st.header('Map:')
     st.map()
     st.code("""st.map()""")
-
-with tab3:
-    pass
 
