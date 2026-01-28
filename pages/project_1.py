@@ -70,15 +70,15 @@ with st.sidebar:
 # Project 1
 
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-image_path = os.path.join(base_dir, "static_files/images", "iris.jpg")
-file_path = os.path.join(base_dir, "static_files", "iris-train.xlsx")
+image_path = os.path.join(base_dir, "static_files/images", "01_iris.jpg")
+file_path = os.path.join(base_dir, "static_files", "01_iris-train.xlsx")
 data = pd.read_excel(file_path)
 
 data = pd.read_excel(file_path)
 X = data.iloc[:, :-1]  # all columns except last
 y = data.iloc[:, -1]  # last column = target
 
-model_path = os.path.join(base_dir, "static_files", "iris_model.pkl")
+model_path = os.path.join(base_dir, "static_files", "01_iris_model.pkl")
 
 message_placeholder = st.empty()
 
@@ -109,7 +109,6 @@ with st.container():
                     max_value=8.0,
                     step=0.1,
                     value=4.0,  # default is 0
-                    help="Enter sepal length in cm (example: 5.1)",
                 )
             with col2:
                 sepal_width = st.number_input(
@@ -118,7 +117,6 @@ with st.container():
                     max_value=4.5,
                     step=0.1,
                     value=2.0,
-                    help="Enter sepal width in cm (example: 3.5)",
                 )
 
         with st.container():
@@ -130,7 +128,6 @@ with st.container():
                     max_value=7.0,
                     step=0.1,
                     value=1.0,
-                    help="Enter petal length in cm (example: 1.4)",
                 )
             with col2:
                 petal_width = st.number_input(
@@ -139,9 +136,8 @@ with st.container():
                     max_value=2.5,
                     step=0.1,
                     value=0.1,
-                    help="Enter petal width in cm (example: 0.2)",
                 )
-        submit = st.form_submit_button("Check")
+        submit = st.form_submit_button("Predict Iris Species")
         if submit:
             features = np.array(
                 [[sepal_length, sepal_width, petal_length, petal_width]]
