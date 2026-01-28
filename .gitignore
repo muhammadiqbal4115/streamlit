@@ -2,3 +2,5 @@ venv/
 .venv/
 __pycache__/
 .env
+static_files/01_iris_model.pkl
+static_files/02_pipeline.pkl
